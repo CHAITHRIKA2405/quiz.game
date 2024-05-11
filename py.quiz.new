@@ -1,0 +1,41 @@
+print("***************")
+print("welcome to quiz game")
+question_bank=[
+         {"text":"The minimum age limit for voting in india is","answer":"A"},
+         {"text":"What is the longest river in the world?","answer":"B"},
+         {"text":"who wrote romeo and juliet?","answer":"c"},
+         {"text":"which planet is known as red planet?","answer":"A"},
+         {"text":"who invented telephone?","answer":"c"}
+
+]
+
+options= [["A. 18","B. 16","C. 13","D. 21"],
+         ["A. Indus","B. Nile","C. Ganga","D. Krishna"],
+         ["A. James joyce","B. J K rowling","C. William shakespeare","D. Jack london"],
+         ["A. Mars","B. Jupiter","C. venus","D. mercury"],
+         ["A. galileo","B. Marie curie","C. Alexander graham bell","D. Nikola tesla"]
+ ]
+score=0
+def check_answer(user_guess,correct_answer):
+   if user_guess==correct_answer:
+      return True
+   else:
+      return False
+
+for question_num in range(len(question_bank)):
+    print("*********************")
+    print(question_bank[question_num]["text"])
+    for i in options[question_num]:
+       print(i)
+
+    guess=input("enter your answer(A/B/C/D): ").upper()
+    is_correct=check_answer(guess,question_bank[question_num]["answer"])
+    if is_correct:
+        print("correct Answer")
+        score +=1
+    else:
+        print("incorrect Answer")
+        print(f"The correct answer is {question_bank[question_num]['answer']}")
+    print(f"your current score is {score}/{question_num+1}")
+print(f"you have given {score} correct answers")
+print(f"your score is {(score/len(question_bank))*100}%")
